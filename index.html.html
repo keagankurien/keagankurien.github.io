@@ -1,0 +1,974 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Keagan Kurien: Social Media &amp; Content</title>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --ink: #0d0d0d;
+  --ink-soft: #3a3a3a;
+  --ink-muted: #6b6b6b;
+  --cream: #f8f5ef;
+  --cream-dark: #f0ece3;
+  --blue: #034694;
+  --blue-dark: #012d68;
+  --blue-light: #e8eef8;
+  --gold: #e8c14e;
+  --gold-light: #f5e07a;
+  --white: #ffffff;
+  --border: rgba(0,0,0,0.08);
+  --border-strong: rgba(0,0,0,0.15);
+}
+
+html { scroll-behavior: smooth; }
+body { font-family: 'Outfit', sans-serif; background: var(--cream); color: var(--ink); line-height: 1.6; overflow-x: hidden; }
+
+/* ── TYPE ── */
+.serif { font-family: 'Bebas Neue', serif; letter-spacing: 0.04em; }
+.baskerville { font-family: 'Libre Baskerville', serif; }
+
+/* ── NAV ── */
+nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+  background: rgba(13,13,13,0.95);
+  backdrop-filter: blur(12px);
+  height: 56px;
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 0 2rem;
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+}
+.nav-name { font-family: 'Bebas Neue', serif; font-size: 1.1rem; color: white; letter-spacing: 0.1em; }
+.nav-links { display: flex; gap: 2rem; list-style: none; }
+.nav-links a { color: rgba(255,255,255,0.55); text-decoration: none; font-size: 0.78rem; letter-spacing: 0.1em; text-transform: uppercase; transition: color 0.2s; }
+.nav-links a:hover { color: var(--gold-light); }
+.nav-cta { background: var(--blue) !important; color: white !important; padding: 0.3rem 1rem; border-radius: 4px; font-weight: 600 !important; }
+.nav-cta:hover { background: var(--blue-dark) !important; color: white !important; }
+.hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; }
+.hamburger span { display: block; width: 20px; height: 1.5px; background: white; transition: all 0.3s; }
+.hamburger.open span:nth-child(1) { transform: rotate(45deg) translate(4.5px, 4.5px); }
+.hamburger.open span:nth-child(2) { opacity: 0; }
+.hamburger.open span:nth-child(3) { transform: rotate(-45deg) translate(4.5px, -4.5px); }
+.mobile-menu { display: none; position: fixed; inset: 56px 0 0 0; background: rgba(13,13,13,0.98); z-index: 99; flex-direction: column; align-items: center; justify-content: center; gap: 2.5rem; }
+.mobile-menu.open { display: flex; }
+.mobile-menu a { color: white; text-decoration: none; font-size: 1.6rem; font-family: 'Bebas Neue', serif; letter-spacing: 0.08em; }
+@media (max-width: 720px) { .nav-links { display: none; } .hamburger { display: flex; } }
+
+/* ── HERO ── */
+.hero {
+  min-height: auto;
+  background: var(--blue-dark);
+  display: flex; flex-direction: column; justify-content: flex-end;
+  padding: 5rem 2rem 5rem;
+  position: relative; overflow: hidden;
+  padding-top: 7rem;
+}
+.hero::before {
+  content: '';
+  position: absolute; top: -80px; right: -80px;
+  width: 500px; height: 500px; border-radius: 50%;
+  border: 80px solid rgba(200,169,74,0.07);
+  pointer-events: none;
+}
+.hero::after {
+  content: '';
+  position: absolute; bottom: -100px; left: 10%;
+  width: 300px; height: 300px; border-radius: 50%;
+  border: 50px solid rgba(200,169,74,0.04);
+  pointer-events: none;
+}
+.hero-bg-text {
+  position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);
+  font-family: 'Bebas Neue', serif;
+  font-size: clamp(120px, 20vw, 220px);
+  color: rgba(255,255,255,0.03);
+  white-space: nowrap; pointer-events: none; user-select: none;
+  line-height: 1;
+}
+.hero-inner { max-width: 960px; margin: 0 auto; width: 100%; position: relative; }
+.hero-availability {
+  display: inline-flex; align-items: center; gap: 0.5rem;
+  background: rgba(52,199,89,0.1); border: 1px solid rgba(52,199,89,0.3);
+  color: #6debb0; font-size: 0.75rem; letter-spacing: 0.1em; text-transform: uppercase;
+  padding: 0.35rem 0.9rem; border-radius: 2rem; margin-bottom: 2rem;
+}
+.hero-availability::before { content: ''; width: 6px; height: 6px; background: #34c759; border-radius: 50%; }
+.hero h1 {
+  font-family: 'Bebas Neue', serif;
+  font-size: clamp(3.2rem, 8vw, 6.5rem);
+  color: white; line-height: 0.95; letter-spacing: 0.03em;
+  margin-bottom: 1.5rem;
+}
+.hero h1 em { color: var(--gold); font-style: italic; font-family: 'Libre Baskerville', serif; font-size: 0.85em; letter-spacing: 0.01em; }
+.hero-sub { font-size: 1.1rem; color: rgba(255,255,255,0.5); max-width: 520px; line-height: 1.75; margin-bottom: 3rem; }
+.hero-stats { display: flex; gap: 3rem; flex-wrap: wrap; border-top: 1px solid rgba(255,255,255,0.08); padding-top: 2.5rem; }
+.hero-stat-num { font-family: 'Bebas Neue', serif; font-size: 2.8rem; color: var(--gold); line-height: 1; text-shadow: 0 0 30px rgba(232,193,78,0.4), 0 2px 4px rgba(0,0,0,0.3); letter-spacing: 0.02em; }
+.hero-stat-label { font-size: 0.75rem; color: rgba(255,255,255,0.4); text-transform: uppercase; letter-spacing: 0.08em; margin-top: 0.2rem; }
+.hero-scroll { position: absolute; bottom: 2rem; right: 0; font-size: 0.72rem; color: rgba(255,255,255,0.3); letter-spacing: 0.12em; text-transform: uppercase; writing-mode: vertical-rl; }
+
+/* ── ABOUT ── */
+.about-section {
+  padding: 7rem 2rem;
+  background: var(--cream);
+}
+.about-inner { max-width: 960px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 6rem; align-items: start; }
+@media (max-width: 720px) { .about-inner { grid-template-columns: 1fr; gap: 3rem; } }
+.about-label { font-size: 0.72rem; letter-spacing: 0.16em; text-transform: uppercase; color: var(--blue); font-weight: 600; margin-bottom: 1rem; }
+.about-title { font-family: 'Bebas Neue', serif; font-size: clamp(2rem, 4vw, 3rem); color: var(--ink); line-height: 1.1; margin-bottom: 2rem; letter-spacing: 0.02em; }
+.about-title em { color: var(--blue); font-style: italic; font-family: 'Libre Baskerville', serif; font-size: 0.85em; }
+.about-body p { font-size: 0.95rem; color: var(--ink-soft); line-height: 1.8; margin-bottom: 1.2rem; }
+.about-body p:last-child { margin-bottom: 0; }
+.about-right { }
+.about-fact { padding: 1.5rem 0; border-bottom: 1px solid var(--border); }
+.about-fact:first-child { border-top: 1px solid var(--border); }
+.about-fact-label { font-size: 0.7rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--ink-muted); margin-bottom: 0.3rem; }
+.about-fact-value { font-size: 0.95rem; color: var(--ink); font-weight: 500; }
+
+/* ── SECTION SCAFFOLDING ── */
+.section { padding: 6rem 2rem; }
+.section.dark { background: var(--ink); }
+.section.white { background: var(--white); }
+.section.cream { background: var(--cream); }
+.section.cream-dark { background: var(--cream-dark); }
+.container { max-width: 960px; margin: 0 auto; }
+.section-eyebrow { font-size: 0.72rem; letter-spacing: 0.16em; text-transform: uppercase; color: var(--blue); font-weight: 600; margin-bottom: 0.75rem; }
+.section-eyebrow.light { color: var(--gold-light); }
+.section-title { font-family: 'Bebas Neue', serif; font-size: clamp(2rem, 4vw, 3rem); color: var(--ink); line-height: 1.1; margin-bottom: 1rem; letter-spacing: 0.02em; }
+.section-title.light { color: white; }
+.section-desc { font-size: 0.95rem; color: var(--ink-muted); max-width: 560px; line-height: 1.7; margin-bottom: 3rem; }
+.section-desc.light { color: rgba(255,255,255,0.5); }
+.rule { width: 36px; height: 2px; background: var(--gold); margin: 1rem 0 2.5rem; }
+
+/* ── CASE STUDIES ── */
+.case-study { margin-bottom: 4rem; background: var(--white); border-radius: 16px; overflow: hidden; border: 1px solid var(--border); }
+.case-study:last-child { margin-bottom: 0; }
+.case-header { padding: 2.5rem 2.5rem 0; display: grid; grid-template-columns: 140px 1fr; gap: 2rem; align-items: center; }
+@media (max-width: 600px) { .case-header { grid-template-columns: 1fr; } }
+.case-logo-box { background: var(--cream); border-radius: 10px; padding: 1.25rem; display: flex; align-items: center; justify-content: center; min-height: 80px; border: 1px solid var(--border); }
+.case-logo-box.dark-bg { background: #0d0d0d; }
+.case-logo-box img { width: 100%; max-width: 110px; height: auto; object-fit: contain; }
+.case-role { font-size: 0.72rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--blue); font-weight: 600; margin-bottom: 0.3rem; }
+.case-title { font-family: 'Libre Baskerville', serif; font-size: 1.3rem; color: var(--ink); font-weight: 400; line-height: 1.3; margin-bottom: 0.5rem; }
+.case-period { font-size: 0.78rem; color: var(--ink-muted); }
+.case-body { padding: 2rem 2.5rem; }
+.case-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2.5rem; margin-bottom: 2rem; }
+@media (max-width: 650px) { .case-grid { grid-template-columns: 1fr; } }
+.case-block-label { font-size: 0.68rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--ink-muted); font-weight: 600; margin-bottom: 0.5rem; border-bottom: 1px solid var(--border); padding-bottom: 0.4rem; }
+.case-block-text { font-size: 0.9rem; color: var(--ink-soft); line-height: 1.7; }
+.case-block-text em { color: var(--blue); font-style: normal; font-weight: 600; }
+
+/* What I enjoyed */
+.case-enjoyed { background: var(--blue-light); border-radius: 10px; padding: 1.25rem 1.5rem; margin-bottom: 2rem; border-left: 3px solid var(--blue); }
+.case-enjoyed-label { font-size: 0.68rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--blue); font-weight: 700; margin-bottom: 0.3rem; }
+.case-enjoyed-text { font-size: 0.9rem; color: var(--ink-soft); line-height: 1.65; }
+
+/* Content samples */
+.content-samples { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 0.75rem; margin-bottom: 2rem; }
+.content-sample { border-radius: 10px; overflow: hidden; position: relative; }
+.content-sample img { width: 100%; height: 200px; object-fit: cover; display: block; }
+.sample-badge { position: absolute; bottom: 0; left: 0; right: 0; background: linear-gradient(transparent, rgba(0,0,0,0.8)); padding: 1.5rem 0.75rem 0.5rem; }
+.sample-badge-text { color: white; font-size: 0.75rem; font-weight: 600; }
+
+/* Podcast embed */
+.podcast-embed-section { background: var(--ink); border-radius: 12px; padding: 2rem; margin-bottom: 2rem; display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; align-items: center; }
+@media (max-width: 600px) { .podcast-embed-section { grid-template-columns: 1fr; } }
+.podcast-eyebrow { font-size: 0.68rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--gold-light); font-weight: 700; margin-bottom: 0.4rem; }
+.podcast-title { font-family: 'Libre Baskerville', serif; font-size: 1.2rem; color: white; font-weight: 400; line-height: 1.4; margin-bottom: 0.6rem; }
+.podcast-desc { font-size: 0.85rem; color: rgba(255,255,255,0.55); line-height: 1.65; }
+.podcast-video iframe { border-radius: 8px; display: block; width: 100%; }
+
+/* Pharma clients */
+.pharma-strip { padding: 1.5rem 2.5rem; background: var(--cream); border-top: 1px solid var(--border); }
+.pharma-strip-label { font-size: 0.68rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--ink-muted); font-weight: 600; margin-bottom: 1rem; }
+.pharma-logos { display: flex; flex-wrap: wrap; gap: 1.25rem; align-items: center; }
+.pharma-logos img { height: 28px; width: auto; object-fit: contain; opacity: 0.6; filter: grayscale(30%); transition: opacity 0.2s; }
+.pharma-logos img:hover { opacity: 1; }
+
+/* Case metrics */
+.case-metrics { display: flex; gap: 0; border-top: 1px solid var(--border); }
+.case-metric { flex: 1; padding: 1.25rem; text-align: center; border-right: 1px solid var(--border); }
+.case-metric:last-child { border-right: none; }
+.case-metric-val { font-family: 'Bebas Neue', serif; font-size: 1.65rem; color: var(--blue); letter-spacing: 0.03em; }
+.case-metric-lbl { font-size: 0.65rem; color: var(--ink-muted); text-transform: uppercase; letter-spacing: 0.06em; margin-top: 0.15rem; }
+@media (max-width: 500px) { .case-metrics { flex-wrap: wrap; } .case-metric { min-width: 50%; } }
+
+/* ── CONTENT WORK ── */
+.content-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; }
+.content-card { background: var(--white); border: 1px solid var(--border); border-radius: 14px; overflow: hidden; transition: transform 0.2s, box-shadow 0.2s; }
+.content-card:hover { transform: translateY(-4px); box-shadow: 0 16px 48px rgba(3,70,148,0.1); }
+.content-card-tag-row { display: flex; align-items: center; justify-content: space-between; padding: 1.25rem 1.5rem 0; }
+.content-card-tag { font-size: 0.68rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; padding: 0.2rem 0.6rem; border-radius: 1rem; }
+.tag-graphic { background: #e8f5e9; color: #2e7d32; }
+.tag-video { background: #fff3e0; color: #b45309; }
+.tag-viral { background: rgba(200,169,74,0.15); color: #7a5c00; }
+.content-card-account { font-size: 0.75rem; color: var(--ink-muted); }
+.content-card-body { padding: 1rem 1.5rem 1.5rem; }
+.content-card-title { font-family: 'Libre Baskerville', serif; font-size: 1rem; color: var(--ink); font-weight: 400; margin-bottom: 0.5rem; line-height: 1.4; }
+.content-card-desc { font-size: 0.85rem; color: var(--ink-muted); line-height: 1.6; margin-bottom: 1rem; }
+.content-card-skills { display: flex; flex-wrap: wrap; gap: 0.35rem; margin-bottom: 1.25rem; }
+.content-card-skills span { font-size: 0.7rem; padding: 0.2rem 0.55rem; border-radius: 1rem; background: var(--cream); border: 1px solid var(--border); color: var(--ink-soft); }
+.embed-wrap { background: white; border-top: 1px solid var(--border); }
+.content-card-link { display: block; padding: 0.75rem 1.5rem; font-size: 0.82rem; font-weight: 600; color: var(--blue); text-decoration: none; border-top: 1px solid var(--border); transition: background 0.2s; }
+.content-card-link:hover { background: var(--blue-light); }
+
+/* ── REEL FEATURE ── */
+.reel-feature { background: var(--blue-dark); border-radius: 16px; padding: 2.5rem; margin-bottom: 2rem; }
+.reel-eyebrow { font-size: 0.7rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--gold-light); font-weight: 700; margin-bottom: 0.5rem; }
+.reel-title { font-family: 'Bebas Neue', serif; font-size: clamp(1.8rem, 3.8vw, 2.5rem); color: white; line-height: 1.1; margin-bottom: 0.75rem; letter-spacing: 0.03em; }
+.reel-title em { color: var(--gold); font-style: normal; }
+.reel-body { font-size: 0.9rem; color: rgba(255,255,255,0.6); line-height: 1.7; max-width: 500px; margin-bottom: 1.5rem; }
+.reel-stats { display: flex; gap: 2.5rem; flex-wrap: wrap; }
+.reel-stat-num { font-family: 'Bebas Neue', serif; font-size: 1.8rem; color: var(--gold); letter-spacing: 0.03em; text-shadow: 0 0 20px rgba(232,193,78,0.3); }
+.reel-stat-lbl { font-size: 0.68rem; color: rgba(255,255,255,0.4); text-transform: uppercase; letter-spacing: 0.06em; }
+.reel-cta { display: inline-flex; align-items: center; gap: 0.4rem; background: var(--gold); color: var(--ink); padding: 0.75rem 1.5rem; border-radius: 8px; font-weight: 700; font-size: 0.85rem; text-decoration: none; transition: background 0.2s; margin-top: 1.5rem; }
+.reel-cta:hover { background: var(--gold-light); }
+
+/* ── PLATFORM VOICE ── */
+.platform-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; margin-bottom: 2rem; }
+.platform-card { background: var(--cream); border: 1px solid var(--border); border-radius: 14px; overflow: hidden; }
+.platform-header { padding: 1.25rem 1.5rem; display: flex; align-items: center; gap: 0.75rem; }
+.x-header { background: #0d0d0d; }
+.tiktok-header { background: #010101; }
+.ig-header { background: linear-gradient(135deg, #833ab4, #fd1d1d, #fcb045); }
+.wa-header { background: #075e54; }
+.fb-header { background: #1877f2; }
+.platform-icon { font-size: 1.2rem; color: white; font-weight: 700; width: 32px; text-align: center; flex-shrink: 0; }
+.platform-name { font-size: 0.95rem; font-weight: 700; color: white; }
+.platform-tag { font-size: 0.65rem; letter-spacing: 0.08em; text-transform: uppercase; color: rgba(255,255,255,0.55); margin-left: auto; white-space: nowrap; }
+.platform-body { padding: 1.25rem 1.5rem; }
+.platform-desc { font-size: 0.86rem; color: var(--ink-soft); line-height: 1.7; margin-bottom: 1rem; }
+.platform-example-label { font-size: 0.65rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink-muted); font-weight: 700; margin-bottom: 0.35rem; }
+.platform-example { font-size: 0.82rem; color: var(--ink); background: white; border-radius: 8px; padding: 0.65rem 0.9rem; border: 1px solid var(--border); line-height: 1.65; margin-bottom: 0.65rem; font-style: italic; }
+.platform-principle { font-size: 0.8rem; color: var(--blue); font-weight: 600; }
+.platform-note { background: var(--ink); border-radius: 12px; padding: 1.5rem 2rem; }
+.platform-note p { font-size: 0.9rem; color: rgba(255,255,255,0.65); line-height: 1.75; }
+
+/* ── MATCHDAY ── */
+.matchday-section { background: var(--ink); }
+.md-intro { max-width: 600px; margin-bottom: 3rem; }
+.md-days { display: flex; flex-direction: column; gap: 2rem; }
+.md-day { }
+.md-day-label { font-size: 0.72rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.12em; color: var(--gold); padding-bottom: 0.75rem; border-bottom: 1px solid rgba(255,255,255,0.08); margin-bottom: 1rem; }
+.md-cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1rem; }
+.md-card { background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08); border-radius: 12px; padding: 1.5rem; transition: background 0.2s; }
+.md-card:hover { background: rgba(255,255,255,0.07); }
+.md-card-head { display: flex; align-items: center; justify-content: space-between; margin-bottom: 1rem; }
+.md-platform { font-size: 0.68rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; padding: 0.18rem 0.6rem; border-radius: 1rem; }
+.plt-x { background: rgba(255,255,255,0.12); color: rgba(255,255,255,0.8); }
+.plt-ig { background: rgba(200,169,74,0.2); color: var(--gold-light); }
+.plt-tt { background: rgba(255,255,255,0.1); color: white; }
+.md-time { font-size: 0.7rem; color: rgba(255,255,255,0.35); }
+.md-card-title { font-size: 0.92rem; font-weight: 600; color: white; margin-bottom: 0.4rem; }
+.md-card-copy { font-size: 0.83rem; color: rgba(255,255,255,0.55); line-height: 1.6; margin-bottom: 0.75rem; }
+.md-card-copy em { color: var(--gold-light); font-style: normal; }
+.md-card-why { font-size: 0.78rem; color: rgba(255,255,255,0.35); line-height: 1.5; border-top: 1px solid rgba(255,255,255,0.06); padding-top: 0.65rem; }
+.md-card-why strong { color: var(--gold); }
+.md-note { margin-top: 2.5rem; background: rgba(200,169,74,0.08); border: 1px solid rgba(200,169,74,0.2); border-radius: 12px; padding: 1.5rem 2rem; }
+.md-note p { font-size: 0.9rem; color: rgba(255,255,255,0.65); line-height: 1.75; }
+.md-note em { color: var(--gold-light); font-style: normal; font-weight: 600; }
+
+/* ── CHELSEA SECTION ── */
+.chelsea-section { background: var(--blue-dark); }
+.pitch-card { background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); border-radius: 16px; padding: 2.5rem; margin-bottom: 2rem; }
+.pitch-quote { font-family: 'Libre Baskerville', serif; font-size: clamp(1.1rem, 2.2vw, 1.45rem); color: white; font-weight: 400; font-style: italic; line-height: 1.65; margin-bottom: 1.5rem; }
+.pitch-quote span { color: var(--gold); }
+.pitch-body p { font-size: 0.92rem; color: rgba(255,255,255,0.65); line-height: 1.8; margin-bottom: 1rem; }
+.pitch-body p:last-child { margin-bottom: 0; }
+.obs-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1rem; }
+.obs-card { background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08); border-radius: 12px; padding: 1.5rem; border-left: 3px solid var(--blue); }
+.obs-tag { font-size: 0.68rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--gold-light); font-weight: 700; margin-bottom: 0.4rem; }
+.obs-card h4 { font-size: 0.95rem; font-weight: 600; color: white; margin-bottom: 0.4rem; }
+.obs-card p { font-size: 0.83rem; color: rgba(255,255,255,0.55); line-height: 1.6; }
+
+/* ── TESTIMONIALS ── */
+.testimonials-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; }
+.testimonial-card { background: white; border: 1px solid var(--border); border-radius: 14px; padding: 2rem; position: relative; }
+.testimonial-card::before { content: '\201C'; font-family: 'Libre Baskerville', serif; font-size: 4rem; color: var(--gold); line-height: 1; position: absolute; top: 1rem; right: 1.5rem; opacity: 0.35; }
+.testimonial-text { font-size: 0.9rem; color: var(--ink-soft); line-height: 1.75; margin-bottom: 1.5rem; font-style: italic; }
+.testimonial-name { font-size: 0.88rem; font-weight: 700; color: var(--ink); }
+.testimonial-role { font-size: 0.78rem; color: var(--ink-muted); margin-top: 0.1rem; }
+.testimonial-relation { font-size: 0.72rem; color: var(--blue); margin-top: 0.2rem; }
+
+/* ── ACADEMIC ── */
+.academic-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem; }
+.academic-card { background: white; border: 1px solid var(--border); border-radius: 14px; padding: 2rem; display: flex; flex-direction: column; gap: 1rem; }
+.academic-card.featured { border-color: var(--blue); border-width: 2px; }
+.academic-grade { display: inline-block; font-size: 0.7rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; padding: 0.2rem 0.7rem; border-radius: 1rem; }
+.grade-distinction { background: rgba(200,169,74,0.15); color: #7a5c00; }
+.grade-merit { background: var(--blue-light); color: var(--blue); }
+.academic-title { font-family: 'Libre Baskerville', serif; font-size: 1rem; font-weight: 400; color: var(--ink); line-height: 1.4; }
+.academic-module { font-size: 0.75rem; color: var(--ink-muted); }
+.academic-desc { font-size: 0.87rem; color: var(--ink-soft); line-height: 1.65; }
+.academic-tags { display: flex; flex-wrap: wrap; gap: 0.35rem; }
+.academic-tags span { font-size: 0.7rem; padding: 0.2rem 0.55rem; border-radius: 1rem; background: var(--cream); border: 1px solid var(--border); color: var(--ink-soft); }
+.academic-link { font-size: 0.83rem; font-weight: 600; color: var(--blue); text-decoration: none; border-bottom: 1px solid var(--border); padding-bottom: 0.1rem; transition: border-color 0.2s; align-self: flex-start; }
+.academic-link:hover { border-color: var(--blue); }
+.link-note { font-size: 0.7rem; color: var(--ink-muted); font-weight: 400; }
+
+/* ── BEYOND ── */
+.beyond-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem; }
+.beyond-card { background: white; border: 1px solid var(--border); border-radius: 14px; padding: 1.75rem; }
+.beyond-card-label { font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--blue); font-weight: 700; margin-bottom: 0.4rem; }
+.beyond-card-title { font-family: 'Libre Baskerville', serif; font-size: 1rem; font-weight: 400; color: var(--ink); margin-bottom: 0.5rem; }
+.beyond-card-desc { font-size: 0.85rem; color: var(--ink-muted); line-height: 1.65; margin-bottom: 1.25rem; }
+.beyond-embed iframe { border-radius: 8px; display: block; width: 100%; }
+
+/* ── CONTACT ── */
+.contact-section { background: var(--ink); padding: 6rem 2rem; text-align: center; }
+.contact-title { font-family: 'Bebas Neue', serif; font-size: clamp(2.2rem, 5.5vw, 4rem); color: white; margin-bottom: 1rem; line-height: 1.0; letter-spacing: 0.03em; }
+.contact-title em { color: var(--gold); font-style: italic; font-family: 'Libre Baskerville', serif; font-size: 0.82em; letter-spacing: 0.01em; }
+.contact-sub { font-size: 0.95rem; color: rgba(255,255,255,0.45); max-width: 480px; margin: 0 auto 2.5rem; line-height: 1.7; }
+.contact-email { display: inline-block; font-size: 1.1rem; color: var(--gold); text-decoration: none; border-bottom: 1px solid rgba(200,169,74,0.3); padding-bottom: 0.2rem; transition: border-color 0.2s; margin-bottom: 2.5rem; }
+.contact-email:hover { border-color: var(--gold); }
+.contact-chips { display: flex; justify-content: center; flex-wrap: wrap; gap: 0.75rem; }
+.contact-chip { display: flex; align-items: center; gap: 0.5rem; background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.1); border-radius: 50px; padding: 0.5rem 1.2rem; font-size: 0.83rem; color: rgba(255,255,255,0.6); text-decoration: none; transition: all 0.2s; }
+.contact-chip:hover { background: rgba(255,255,255,0.1); color: white; }
+.contact-chip span { font-weight: 600; color: rgba(255,255,255,0.9); }
+
+footer { background: var(--ink); border-top: 1px solid rgba(255,255,255,0.06); text-align: center; padding: 1.5rem; color: rgba(255,255,255,0.2); font-size: 0.78rem; }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-name">Keagan Kurien</div>
+  <ul class="nav-links">
+    <li><a href="#clients">Work</a></li>
+    <li><a href="#chelsea">Chelsea</a></li>
+    
+    <li><a href="#content">Content</a></li>
+    <li><a href="#about">About</a></li>
+    <li><a href="#contact">Contact</a></li>
+    <li><a href="mailto:keagan05@gmail.com?subject=CV Request" class="nav-cta">Download CV</a></li>
+  </ul>
+  <div class="hamburger" id="hamburger" onclick="toggleMenu()">
+    <span></span><span></span><span></span>
+  </div>
+</nav>
+
+<div class="mobile-menu" id="mobileMenu">
+  <a href="#clients" onclick="toggleMenu()">Work</a>
+  <a href="#chelsea" onclick="toggleMenu()">Chelsea</a>
+  <a href="#platforms" onclick="toggleMenu()">Platforms</a>
+  <a href="#content" onclick="toggleMenu()">Content</a>
+  <a href="#about" onclick="toggleMenu()">About</a>
+  <a href="#contact" onclick="toggleMenu()">Contact</a>
+</div>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-inner">
+    <div class="hero-availability">Open to opportunities, Summer 2026</div>
+    <h1 class="serif">Social media<br>& <em>content</em><br>professional.</h1>
+    <p class="hero-sub">2.5 years publishing, editing and optimising content across TikTok, Instagram, Facebook and X. Global clients, 20+ countries. The work is below.</p>
+    <div class="hero-stats">
+      <div><div class="hero-stat-num">1,200%</div><div class="hero-stat-label">Engagement uplift YoY</div></div>
+      <div><div class="hero-stat-num">20M+</div><div class="hero-stat-label">Campaign impressions</div></div>
+      <div><div class="hero-stat-num">100+</div><div class="hero-stat-label">Multilingual assets</div></div>
+      <div><div class="hero-stat-num">23+</div><div class="hero-stat-label">Global clients</div></div>
+    </div>
+  </div>
+</div>
+
+<!-- CLIENT CASE STUDIES -->
+<section class="section white" id="clients">
+  <div class="container">
+    <div class="section-eyebrow">Client work</div>
+    <h2 class="section-title serif">Three roles.<br>Three different briefs.</h2>
+    <div class="rule"></div>
+
+    <!-- AXIOS -->
+    <div class="case-study">
+      <div class="case-header">
+        <div class="case-logo-box">
+          <img src="axios-logo.svg" alt="Axios International">
+        </div>
+        <div>
+          <div class="case-role">Marketing & Communications Executive</div>
+          <div class="case-title serif">Global healthcare social media across 20+ countries</div>
+          <div class="case-period">Axios International · Dubai, UAE · Sep 2022 – Feb 2025</div>
+        </div>
+      </div>
+      <div class="case-body">
+        <div class="case-grid">
+          <div>
+            <div class="case-block-label">The brief</div>
+            <div class="case-block-text">Plan, produce and publish social content across Axios's owned channels for 23+ global pharmaceutical clients running patient access programmes across 20+ countries. Manage campaign analytics, performance reporting and multilingual content production. Coordinate a content calendar across Instagram, Facebook, LinkedIn and X simultaneously.</div>
+          </div>
+          <div>
+            <div class="case-block-label">What I did</div>
+            <div class="case-block-text">Built a systematic A/B testing process across 40+ social assets to identify what drove engagement. Edited 30+ videos in Adobe Premiere Pro, produced 100+ multilingual graphics in Adobe Creative Suite and Canva. Designed and launched two original content series. Reduced reporting time by 30% through a custom Hootsuite and Google Analytics framework. Cut underperforming spend by 15%.</div>
+          </div>
+          <div>
+            <div class="case-block-label">The result</div>
+            <div class="case-block-text">1,200% YoY increase in campaign engagement. 20M+ impressions at $0.11 CPC. 100% on-time delivery across 2.5 years and 23+ client accounts. Recognised twice for outstanding contribution and resilience (2024 & 2025).</div>
+          </div>
+          <div>
+            <div class="case-block-label">Before vs after</div>
+            <div class="case-block-text">When I joined, campaign analytics were tracked manually and reported inconsistently. By building a standardised Hootsuite dashboard, reporting time dropped 30% and underperforming content was identified and cut within weeks rather than quarters. Engagement went from baseline to 1,200% uplift YoY through systematic testing, not a single campaign spike.</div>
+          </div>
+        </div>
+
+        <div class="case-enjoyed">
+          <div class="case-enjoyed-label">What I enjoyed most</div>
+          <div class="case-enjoyed-text">The challenge of making genuinely complex healthcare topics (patient data governance, treatment access, clinical compliance) feel human and accessible on social media. It forced me to think about copy, tone and visual framing much more carefully than an easier brief would have. And hosting the podcast series was the moment I realised I wanted to be on both sides of content: producing it and presenting it.</div>
+        </div>
+
+        <!-- The Access Code podcast -->
+        <div class="podcast-embed-section">
+          <div>
+            <div class="podcast-eyebrow">Original series: conceived, designed &amp; hosted</div>
+            <div class="podcast-title serif">The Access Code</div>
+            <div class="podcast-desc">I created the series name (a play on Axios's core mission: <em style="color:rgba(255,255,255,0.75)">access</em> to healthcare), designed the visual identity, and hosted the first episode: a conversation with Axios's Head of Quality, Compliance and Ethics about patient data safety. Produced and edited in Adobe Premiere Pro.</div>
+          </div>
+          <div class="podcast-video">
+            <img src="1779443361755_image.png" alt="Keagan hosting The Access Code podcast" style="width:100%;border-radius:8px;display:block;margin-bottom:0.75rem;object-fit:cover;max-height:160px;">
+            <iframe height="160" src="https://www.youtube.com/embed/mKLWHel3TE4" title="The Access Code" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+          </div>
+        </div>
+
+        <div class="case-block-label" style="margin-bottom:0.75rem">Content produced for Axios International:</div>
+        <div class="content-samples" style="margin-bottom:2rem">
+          <div class="content-sample">
+            <img src="1779443583893_image.png" alt="Effective Communication is Key">
+            <div class="sample-badge"><div class="sample-badge-text">2,801 likes · Instagram</div></div>
+          </div>
+          <div class="content-sample">
+            <img src="1779443464994_image.png" alt="Sustainability Impact Report">
+            <div class="sample-badge"><div class="sample-badge-text">3,291 likes · Instagram</div></div>
+          </div>
+          <div class="content-sample">
+            <img src="1779443539836_image.png" alt="Empowering Patients">
+            <div class="sample-badge"><div class="sample-badge-text">8,497 likes · Instagram</div></div>
+          </div>
+          <div class="content-sample">
+            <img src="1779443399180_image.png" alt="Axios Instagram post">
+            <div class="sample-badge"><div class="sample-badge-text">Instagram · Axios International</div></div>
+          </div>
+        </div>
+      </div>
+      <div class="pharma-strip">
+        <div class="pharma-strip-label">Clients whose campaigns I supported:</div>
+        <div class="pharma-logos">
+          <img src="novartis-logo-open-graph.webp" alt="Novartis">
+          <img src="Sanofi-Logo.png" alt="Sanofi">
+          <img src="Pfizer__2021_.svg" alt="Pfizer">
+          <img src="Glaxo-SmithKline-PLC_company_logo.webp" alt="GSK">
+          <img src="Takeda_Logo.jpg" alt="Takeda">
+          <img src="Janssen-logo.jpg" alt="Janssen">
+        </div>
+      </div>
+      <div class="case-metrics">
+        <div class="case-metric"><div class="case-metric-val">1,200%</div><div class="case-metric-lbl">Engagement uplift</div></div>
+        <div class="case-metric"><div class="case-metric-val">20M+</div><div class="case-metric-lbl">Impressions</div></div>
+        <div class="case-metric"><div class="case-metric-val">-30%</div><div class="case-metric-lbl">Reporting time</div></div>
+        <div class="case-metric"><div class="case-metric-val">100%</div><div class="case-metric-lbl">On-time delivery</div></div>
+      </div>
+    </div>
+
+    <!-- LIGHT OF SAKINA -->
+    <div class="case-study">
+      <div class="case-header">
+        <div class="case-logo-box dark-bg">
+          <img src="431296_da4193e038714b659e7e105046ba536c_mv2.png" alt="Light of Sakina">
+        </div>
+        <div>
+          <div class="case-role">Marketing Executive</div>
+          <div class="case-title serif">Instagram growth for a luxury Dubai wellness brand</div>
+          <div class="case-period">Light of Sakina · Dubai, UAE · Mar 2022 – Jun 2022</div>
+        </div>
+      </div>
+      <div class="case-body">
+        <div class="case-grid">
+          <div>
+            <div class="case-block-label">The brief</div>
+            <div class="case-block-text">Grow Light of Sakina's Instagram presence, build a sustainable content engine, and drive community engagement for a premium handcrafted candle and wellness brand. The audience was predominantly women in Dubai: aspirational, quality-focused, community-driven.</div>
+          </div>
+          <div>
+            <div class="case-block-label">What I did</div>
+            <div class="case-block-text">Built the content calendar from scratch and posted daily. Created 70+ original assets: lifestyle graphics, product photography direction, giveaway campaigns and brand partnership content. Reviewed analytics every week and adjusted format mix based on what was performing. Co-led the Nour loyalty programme for 1,000+ customers.</div>
+          </div>
+          <div>
+            <div class="case-block-label">The result</div>
+            <div class="case-block-text">30% follower growth over four months. Sustained, not a single spike. Giveaway campaign in partnership with Kaina Home drove 122+ engagements. Mother's Day campaign hit 141 likes. Audience engagement rate improved month-on-month throughout the period.</div>
+          </div>
+          <div>
+            <div class="case-block-label">Before vs after</div>
+            <div class="case-block-text">The account had inconsistent posting and no structured content calendar before I joined. By introducing a weekly scheduling rhythm and testing lifestyle vs product-focused content, engagement per post increased meaningfully and follower growth became predictable rather than sporadic.</div>
+          </div>
+        </div>
+        <div class="case-enjoyed">
+          <div class="case-enjoyed-label">What I enjoyed most</div>
+          <div class="case-enjoyed-text">The creative freedom. A luxury lifestyle brand gives you room to think about mood, aesthetic and tone in a way that most briefs don't. I enjoyed matching content style to the brand's identity (warm, considered, premium) rather than just scheduling posts and hoping for the best.</div>
+        </div>
+        <div class="content-samples" style="margin-bottom:0">
+          <div class="content-sample">
+            <img src="1779445655480_image.png" alt="Light of Sakina Eid Giveaway">
+            <div class="sample-badge"><div class="sample-badge-text">122 likes · Instagram</div></div>
+          </div>
+          <div class="content-sample">
+            <img src="1779445777044_image.png" alt="Light of Sakina Mother's Day">
+            <div class="sample-badge"><div class="sample-badge-text">141 likes · Instagram</div></div>
+          </div>
+        </div>
+      </div>
+      <div class="case-metrics">
+        <div class="case-metric"><div class="case-metric-val">+30%</div><div class="case-metric-lbl">Follower growth</div></div>
+        <div class="case-metric"><div class="case-metric-val">70+</div><div class="case-metric-lbl">Assets produced</div></div>
+        <div class="case-metric"><div class="case-metric-val">4 mo</div><div class="case-metric-lbl">Timeline</div></div>
+      </div>
+    </div>
+
+    <!-- LINE UP -->
+    <div class="case-study">
+      <div class="case-header">
+        <div class="case-logo-box">
+          <span style="font-family:'Bebas Neue',serif;font-size:1.1rem;color:var(--blue);font-weight:300;">Line Up<br>Social Sports</span>
+        </div>
+        <div>
+          <div class="case-role">Business Development Intern</div>
+          <div class="case-title serif">Sport content that moved the commercial needle</div>
+          <div class="case-period">Line Up Social Sports · Dubai, UAE · May 2021 – Dec 2021</div>
+        </div>
+      </div>
+      <div class="case-body">
+        <div class="case-grid">
+          <div>
+            <div class="case-block-label">The brief</div>
+            <div class="case-block-text">Line Up ran competitive recreational football leagues across Dubai. The brief was to use social content (match data, video highlights) to grow the player community and improve commercial performance. This was the internship where marketing first clicked for me, between my third and fourth year at university.</div>
+          </div>
+          <div>
+            <div class="case-block-label">What I did</div>
+            <div class="case-block-text">Produced and published match data and short-form video highlights after each game. Supported stakeholder outreach to secure investment. Managed social content that directly promoted the league and its community to prospective players.</div>
+          </div>
+          <div>
+            <div class="case-block-label">The result</div>
+            <div class="case-block-text">Per-game revenue increased 20% over the period. Secured $10K+ in investment through stakeholder engagement. First time I saw a direct, measurable line between what goes up on social and what comes in commercially. In sport specifically.</div>
+          </div>
+          <div>
+            <div class="case-block-label">Why it mattered</div>
+            <div class="case-block-text">This is where the idea clicked: social content for a sports organisation isn't decoration. It's how you build the community that justifies the commercial model. That understanding has shaped every role since.</div>
+          </div>
+        </div>
+        <div class="case-enjoyed">
+          <div class="case-enjoyed-label">What I enjoyed most</div>
+          <div class="case-enjoyed-text">The immediacy of it. You post the highlights, you watch the response, and you can see it directly affecting whether people turn up next week. There's no gap between the content and the outcome. I've been looking for that feeling in every role since.</div>
+        </div>
+        <div class="content-samples" style="max-width:320px;margin-bottom:0">
+          <div class="content-sample">
+            <img src="1779445381724_image.png" alt="Line Up Social Sports post">
+            <div class="sample-badge"><div class="sample-badge-text">47 likes · Instagram</div></div>
+          </div>
+        </div>
+      </div>
+      <div class="case-metrics">
+        <div class="case-metric"><div class="case-metric-val">+20%</div><div class="case-metric-lbl">Revenue per game</div></div>
+        <div class="case-metric"><div class="case-metric-val">$10K+</div><div class="case-metric-lbl">Investment secured</div></div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- CHELSEA / HOW I THINK -->
+<section class="section chelsea-section" id="chelsea">
+  <div class="container">
+    <div class="section-eyebrow light">Chelsea FC</div>
+    <h2 class="section-title serif light">How I think about<br>football content.</h2>
+    <div class="rule"></div>
+    <div class="pitch-card" style="margin-bottom:2rem">
+      <div class="pitch-quote serif">"Two words. Right photo. Right moment. <span>That's the job.</span>"</div>
+      <div class="pitch-body">
+        <p>Chelsea posted "These two. 💙🇧🇷" after beating Spurs last week. 33K likes. Two words. That's not luck. That's someone knowing exactly when to say less.</p>
+        <p>I engage with Chelsea's channels the way I engage with their matches. As a fan, yes, but also analytically. Each channel has a different job, a different tone, a different measure of what good looks like. That's what the section below is about.</p>
+      </div>
+    </div>
+    <div class="section-eyebrow light" style="margin-bottom:1.5rem">What I've noticed</div>
+    <div class="obs-grid" style="margin-bottom:3rem">
+      <div class="obs-card">
+        <div class="obs-tag">Strength</div>
+        <h4>X post-match is the strongest output</h4>
+        <p>"Shooooot. 🫣": 101K impressions. "Enzo from range! 🌊": 105K. One emoji, player name, action verb. It's a formula but it doesn't feel like one. That's the standard I'd match.</p>
+      </div>
+      <div class="obs-card">
+        <div class="obs-tag">Idea</div>
+        <h4>Fan data through content, not banners</h4>
+        <p>End-of-season carousel with a WhatsApp CTA. Prediction questions before matchday. The clubs pulling first-party data right now do it through content fans actually want.</p>
+      </div>
+    </div>
+
+    <div class="section-eyebrow light" style="margin-top:3rem;margin-bottom:0.75rem">How I read the channels</div>
+    <h3 style="font-family:'Bebas Neue',serif;font-size:clamp(1.6rem,3vw,2.2rem);color:white;letter-spacing:0.03em;line-height:1.1;margin-bottom:0.5rem;">Each platform is a different conversation.</h3>
+
+    <div class="platform-grid" style="margin-bottom:2rem;">
+      <div class="platform-card">
+        <div class="platform-header x-header">
+          <div class="platform-icon"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="white" viewBox="0 0 16 16"><path d="M12.6.75h2.454l-5.36 6.142L16 15.25h-4.937l-3.867-5.07-4.425 5.07H.316l5.733-6.57L0 .75h5.063l3.495 4.633L12.601.75Zm-.86 13.028h1.36L4.323 2.145H2.865z"/></svg></div>
+          <div class="platform-name">X / Twitter</div>
+          <div class="platform-tag">Live commentary</div>
+        </div>
+        <div class="platform-body">
+          <p class="platform-desc">X is where matchday actually happens. The job is speed. Post within seconds of a goal, a VAR call, a red card. Short lines, one emoji max, player name first. The copy carries the emotion; the clip confirms it. Anything longer than two lines loses the moment.</p>
+          <div class="platform-example-label">What good looks like</div>
+          <div class="platform-example">"Enzo from range! 🌊": 105K impressions<br>"Shooooot. 🫣": 101K impressions<br>"These two. 💙🇧🇷": 33K likes</div>
+          <div class="platform-principle">The principle: say less. Fans bring the feeling themselves.</div>
+        </div>
+      </div>
+      <div class="platform-card">
+        <div class="platform-header tiktok-header">
+          <div class="platform-icon"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="white" viewBox="0 0 16 16"><path d="M9 0h1.98c.144.715.54 1.617 1.235 2.512C12.895 3.389 13.797 4 15 4v2c-1.753 0-3.07-.814-4-1.829V11a5 5 0 1 1-5-5v2a3 3 0 1 0 3 3z"/></svg></div>
+          <div class="platform-name">TikTok</div>
+          <div class="platform-tag">Personality-led</div>
+        </div>
+        <div class="platform-body">
+          <p class="platform-desc">TikTok has the most room for personality. It's where Chelsea can be playful, self-aware and fan-facing in a way that would feel off-brand on Instagram. Behind-the-scenes moments, humour, trending audio, looser energy. Retention matters most. The first two seconds decide whether people stay.</p>
+          <div class="platform-example-label">What good looks like</div>
+          <div class="platform-example">Reaction formats. Trending sounds timed to a match moment. Player content that feels unguarded rather than produced.</div>
+          <div class="platform-principle">The principle: personality over polish. The less corporate it feels, the better it performs.</div>
+        </div>
+      </div>
+      <div class="platform-card">
+        <div class="platform-header ig-header">
+          <div class="platform-icon"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="white" viewBox="0 0 16 16"><path d="M8 0C5.829 0 5.556.01 4.703.048 3.85.088 3.269.222 2.76.42a3.9 3.9 0 0 0-1.417.923A3.9 3.9 0 0 0 .42 2.76C.222 3.268.087 3.85.048 4.7.01 5.555 0 5.827 0 8.001c0 2.172.01 2.444.048 3.297.04.852.174 1.433.372 1.942.205.526.478.972.923 1.417.444.445.89.719 1.416.923.51.198 1.09.333 1.942.372C5.555 15.99 5.827 16 8 16s2.444-.01 3.298-.048c.851-.04 1.434-.174 1.943-.372a3.9 3.9 0 0 0 1.416-.923c.445-.445.718-.891.923-1.417.197-.509.332-1.09.372-1.942C15.99 10.445 16 10.173 16 8s-.01-2.445-.048-3.299c-.04-.851-.175-1.433-.372-1.941a3.9 3.9 0 0 0-.923-1.417A3.9 3.9 0 0 0 13.24.42c-.51-.198-1.092-.333-1.943-.372C10.443.01 10.172 0 7.998 0zm-.717 1.442h.718c2.136 0 2.389.007 3.232.046.78.035 1.204.166 1.486.275.373.145.64.319.92.599s.453.546.598.92c.11.281.24.705.275 1.485.039.843.047 1.096.047 3.231s-.008 2.389-.047 3.232c-.035.78-.166 1.203-.275 1.485a2.47 2.47 0 0 1-.599.919c-.28.28-.546.453-.92.598-.28.11-.704.24-1.485.276-.843.038-1.096.047-3.232.047s-2.39-.009-3.233-.047c-.78-.036-1.203-.166-1.485-.276a2.5 2.5 0 0 1-.92-.598 2.5 2.5 0 0 1-.6-.92c-.109-.281-.24-.705-.275-1.485-.038-.843-.046-1.096-.046-3.233s.008-2.388.046-3.231c.036-.78.166-1.204.276-1.486.145-.373.319-.64.599-.92s.546-.453.92-.598c.282-.11.705-.24 1.485-.276.738-.034 1.024-.044 2.515-.045zm4.988 1.328a.96.96 0 1 0 0 1.92.96.96 0 0 0 0-1.92m-4.27 1.122a4.109 4.109 0 1 0 0 8.217 4.109 4.109 0 0 0 0-8.217m0 1.441a2.667 2.667 0 1 1 0 5.334 2.667 2.667 0 0 1 0-5.334"/></svg></div>
+          <div class="platform-name">Instagram</div>
+          <div class="platform-tag">Visual & considered</div>
+        </div>
+        <div class="platform-body">
+          <p class="platform-desc">Instagram is where the brand lives visually. The feed is more controlled: better photography, cleaner graphics, captions that support the image rather than carry it. Carousels tend to drive saves, which is where Instagram value often shows up. Stories is where fan interaction happens: polls, Q&amp;As, match reactions.</p>
+          <div class="platform-example-label">What good looks like</div>
+          <div class="platform-example">Player photography fans screenshot. End-of-season carousels with CTAs. Stories polls that capture preference data without feeling like surveys.</div>
+          <div class="platform-principle">The principle: looks matter here in a way they don't on X. One bad graphic in the feed damages the whole aesthetic.</div>
+        </div>
+      </div>
+      <div class="platform-card">
+        <div class="platform-header wa-header">
+          <div class="platform-icon"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="white" viewBox="0 0 16 16"><path d="M13.601 2.326A7.85 7.85 0 0 0 7.994 0C3.627 0 .068 3.558.064 7.926c0 1.399.366 2.76 1.057 3.965L0 16l4.204-1.102a7.9 7.9 0 0 0 3.79.965h.004c4.368 0 7.926-3.558 7.93-7.93A7.9 7.9 0 0 0 13.6 2.326zM7.994 14.521a6.6 6.6 0 0 1-3.356-.92l-.24-.144-2.494.654.666-2.433-.156-.251a6.56 6.56 0 0 1-1.007-3.505c0-3.626 2.957-6.584 6.591-6.584a6.56 6.56 0 0 1 4.66 1.931 6.56 6.56 0 0 1 1.928 4.66c-.004 3.639-2.961 6.592-6.592 6.592m3.615-4.934c-.197-.099-1.17-.578-1.353-.646-.182-.065-.315-.099-.445.099-.133.197-.513.646-.627.775-.114.133-.232.148-.43.05-.197-.1-.836-.308-1.592-.985-.59-.525-.985-1.175-1.103-1.372-.114-.198-.011-.304.088-.403.087-.088.197-.232.296-.346.1-.114.133-.198.198-.33.065-.134.034-.248-.015-.347-.05-.099-.445-1.076-.612-1.47-.16-.389-.323-.335-.445-.34-.114-.007-.247-.007-.38-.007a.73.73 0 0 0-.529.247c-.182.198-.691.677-.691 1.654s.71 1.916.81 2.049c.098.133 1.394 2.132 3.383 2.992.47.205.84.326 1.129.418.475.152.904.129 1.246.08.38-.058 1.171-.48 1.338-.943.164-.464.164-.86.114-.943-.049-.084-.182-.133-.38-.232"/></svg></div>
+          <div class="platform-name">WhatsApp</div>
+          <div class="platform-tag">Direct & practical</div>
+        </div>
+        <div class="platform-body">
+          <p class="platform-desc">WhatsApp is a different job entirely. The audience has opted in. They want information, not entertainment. Matchday logistics, lineup drops, result updates, pre-season news. Calm and direct. No emoji spam, no marketing language. Like a trusted mate sending you what you actually need to know before a game.</p>
+          <div class="platform-example-label">What good looks like</div>
+          <div class="platform-example">Lineup confirmed. Kick-off 3pm. Gates open 1:30pm. Travel advice for Sunderland away.</div>
+          <div class="platform-principle">The principle: utility first. Fans who sign up already love the club. They don't need selling to.</div>
+        </div>
+      </div>
+      <div class="platform-card">
+        <div class="platform-header fb-header">
+          <div class="platform-icon"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="white" viewBox="0 0 16 16"><path d="M16 8.049c0-4.446-3.582-8.05-8-8.05C3.58 0-.002 3.603-.002 8.05c0 4.017 2.926 7.347 6.75 7.951v-5.625h-2.03V8.05H6.75V6.275c0-2.017 1.195-3.131 3.022-3.131.876 0 1.791.157 1.791.157v1.98h-1.009c-.993 0-1.303.621-1.303 1.258v1.51h2.218l-.354 2.326H9.25V16c3.824-.604 6.75-3.934 6.75-7.951"/></svg></div>
+          <div class="platform-name">Facebook</div>
+          <div class="platform-tag">Community & reach</div>
+        </div>
+        <div class="platform-body">
+          <p class="platform-desc">Facebook skews older and reaches parts of the global fanbase that aren't on TikTok. Longer-form content and match recaps perform well. Fans comment, share and tag friends in a way that doesn't happen on Instagram. Less about speed, more about completeness.</p>
+          <div class="platform-example-label">What good looks like</div>
+          <div class="platform-example">Full match highlights. Player feature videos. Historical content that sparks nostalgia and comment threads.</div>
+          <div class="platform-principle">The principle: Facebook fans want the full story. Give them something to discuss.</div>
+        </div>
+      </div>
+    </div>
+    <div class="platform-note" style="margin-bottom:3rem;">
+      <p>One prompt doesn't cover five platforms. The caption written for X will kill the Instagram post. The TikTok that works at 11pm won't land on Facebook at 9am. Every channel needs its own brief, even when the content is the same clip.</p>
+    </div>
+    <div class="section-eyebrow light" style="margin-top:3rem;margin-bottom:0.75rem">If I ran Chelsea social</div>
+    <h3 style="font-family:'Bebas Neue',serif;font-size:clamp(1.6rem,3vw,2.2rem);color:white;letter-spacing:0.03em;line-height:1.1;margin-bottom:0.5rem;">Post-season to pre-season: the content brief right now.</h3>
+
+    <div class="md-days">
+      <div class="md-day">
+        <div class="md-day-label">Now until June 10: Close the season, build the Alonso story</div>
+        <div class="md-cards">
+          <div class="md-card">
+            <div class="md-card-head"><span class="md-platform plt-ig">Instagram</span><span class="md-time">This week</span></div>
+            <div class="md-card-title">Season in numbers carousel</div>
+            <div class="md-card-copy">One stat per slide. Appearances, goals, clean sheets, minutes played. Factual, no spin. Caption: <em>The numbers. 25/26. 💙</em></div>
+            <div class="md-card-why"><strong>Why:</strong> Fans want acknowledgement, not a highlights reel. Numbers are honest without being editorial. High saves.</div>
+          </div>
+          <div class="md-card">
+            <div class="md-card-head"><span class="md-platform plt-ig">Instagram Stories</span><span class="md-time">This week</span></div>
+            <div class="md-card-title">Player of the season vote</div>
+            <div class="md-card-copy">Question sticker. Let fans vote. Repost the most interesting answers. If one name dominates, that becomes a feed post.</div>
+            <div class="md-card-why"><strong>Why:</strong> Engagement without the club having to take a position. Also tells you who fans actually rate going into next season.</div>
+          </div>
+          <div class="md-card">
+            <div class="md-card-head"><span class="md-platform plt-x">X / Twitter</span><span class="md-time">Player send-offs</span></div>
+            <div class="md-card-title">World Cup squad announcements</div>
+            <div class="md-card-copy">As each nation confirms, one post per player. Player name, country, flag. <em>Reece. England. World Cup. 🏴󠁧󠁢󠁥󠁮󠁧󠁿 💙</em> Same formula Chelsea used for Palmer at Euro 2024.</div>
+            <div class="md-card-why"><strong>Why:</strong> Pivots conversation forward immediately. Pride in the player, not the club's season. Reece James, Malo Gusto, Pedro Neto, Enzo Fernández, Cucurella: all confirmed or expected.</div>
+          </div>
+          <div class="md-card">
+            <div class="md-card-head"><span class="md-platform plt-x">X / Twitter</span><span class="md-time">May 29</span></div>
+            <div class="md-card-title">Four years since Porto</div>
+            <div class="md-card-copy">May 29 2021. Champions of Europe. <em>Four years ago today. 💙🏆</em> One photo. That finish. Nothing else needed.</div>
+            <div class="md-card-why"><strong>Why:</strong> Nostalgia content performs well in the off-season when there's nothing competitive to post. This is a genuine moment fans remember. Low effort, high engagement. The anniversary does the work.</div>
+          </div>
+          <div class="md-card">
+            <div class="md-card-head"><span class="md-platform plt-tt">TikTok + Reels</span><span class="md-time">Alonso content</span></div>
+            <div class="md-card-title">New manager, new era</div>
+            <div class="md-card-copy">His best moments at Leverkusen, the unbeaten season, the way his teams play. Chelsea badge at the end. Trending audio. Caption: <em>A new era. 💙</em></div>
+            <div class="md-card-why"><strong>Why:</strong> TikTok is where you build excitement. Alonso is a genuine draw. His Leverkusen record speaks for itself. Let that content do the work before the World Cup drowns it out.</div>
+          </div>
+        </div>
+      </div>
+      <div class="md-day">
+        <div class="md-day-label">June 11 onwards: Our Blues at the World Cup</div>
+        <div class="md-cards">
+          <div class="md-card">
+            <div class="md-card-head"><span class="md-platform plt-ig">Instagram</span><span class="md-time">June 11</span></div>
+            <div class="md-card-title">Chelsea at the World Cup graphic</div>
+            <div class="md-card-copy">One carousel slide per player, their country kit, their group and fixtures. Caption: <em>Chelsea FC at the 2026 World Cup. 🌍💙</em> Save-worthy format.</div>
+            <div class="md-card-why"><strong>Why:</strong> The club is represented across Argentina, England, France, Portugal, Senegal, Spain. That's a global story. High saves, shareable across fanbases.</div>
+          </div>
+          <div class="md-card">
+            <div class="md-card-head"><span class="md-platform plt-x">X / Twitter</span><span class="md-time">Any Chelsea player plays</span></div>
+            <div class="md-card-title">Reactive World Cup posts</div>
+            <div class="md-card-copy">When a Chelsea player scores or does something notable: player name, action, one emoji. <em>Reece. England. World Cup debut. 🏴󠁧󠁢󠁥󠁮󠁧󠁿💙</em> Speed first, same as matchday.</div>
+            <div class="md-card-why"><strong>Why:</strong> Chelsea used exactly this format during Euro 2024: "Balling his way to Berlin" for Palmer heading into the final. One line, maximum reach. The club stays relevant during the off-season without overstepping.</div>
+          </div>
+          <div class="md-card">
+            <div class="md-card-head"><span class="md-platform plt-ig">Instagram Stories</span><span class="md-time">Ongoing</span></div>
+            <div class="md-card-title">Fixture guide for Chelsea players</div>
+            <div class="md-card-copy">Swipeable story: each Chelsea player, their group fixtures, dates, UK kick-off times. Caption: <em>Bookmark this. 🌍</em></div>
+            <div class="md-card-why"><strong>Why:</strong> Pure utility. Fans will screenshot it. Drives saves and shares, keeps Chelsea top of mind through a month when the club has nothing competitive happening.</div>
+          </div>
+        </div>
+      </div>
+      <div class="md-day">
+        <div class="md-day-label">July onwards: New era begins</div>
+        <div class="md-cards">
+          <div class="md-card">
+            <div class="md-card-head"><span class="md-platform plt-tt">TikTok + Reels</span><span class="md-time">World Cup ends</span></div>
+            <div class="md-card-title">Alonso back in focus</div>
+            <div class="md-card-copy">First look at Cobham under the new setup. Behind the scenes, nothing over-produced. Caption: <em>Day one. 💙</em></div>
+            <div class="md-card-why"><strong>Why:</strong> The World Cup has ended, attention returns to club football. This is the moment to own. Fans are curious. You don't need to say much, just show up.</div>
+          </div>
+          <div class="md-card">
+            <div class="md-card-head"><span class="md-platform plt-x">X / Twitter</span><span class="md-time">Pre-season</span></div>
+            <div class="md-card-title">Players returning from the World Cup</div>
+            <div class="md-card-copy">As players come back to Cobham: <em>Welcome back. 💙</em> Photo or short clip. Simple. One player at a time.</div>
+            <div class="md-card-why"><strong>Why:</strong> Closes the World Cup chapter and restarts the Chelsea story. Connects the international window back to the club. Sets up pre-season content naturally.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- PERSONAL CONTENT -->
+<section class="section cream-dark" id="content">
+  <div class="container">
+    <div class="section-eyebrow">Personal content</div>
+    <h2 class="section-title serif">What I make<br>on my own time.</h2>
+    <div class="rule"></div>
+    <p class="section-desc">No brief, no client, no approval chain. The accounts that show how I actually think about content.</p>
+    <div class="content-grid">
+      <div class="content-card">
+        <div class="content-card-tag-row">
+          <span class="content-card-tag tag-viral">3.2M Views</span>
+          <span class="content-card-account">@thekeaganproject</span>
+        </div>
+        <div class="content-card-body">
+          <div class="content-card-title serif">Fitness reel, personal account</div>
+          <div class="content-card-desc">100 followers at the time. The video had been sitting in my camera roll for weeks. I'd filmed it for my fitness coach, not for posting. Looked back at it one day, thought it was funny, put it up with minimal edits. 3.2 million views. The reaction was genuine because the situation was real. You can't plan for that, which is maybe the point.</div>
+          <div class="content-card-skills">
+            <span>Organic reach</span><span>Short-form video</span><span>Authentic content</span><span>Reels</span>
+          </div>
+        </div>
+        <a href="https://www.instagram.com/p/DW8sJoCsPjK/" target="_blank" class="content-card-link">View on Instagram ↗</a>
+      </div>
+      <div class="content-card">
+        <div class="content-card-tag-row">
+          <span class="content-card-tag tag-graphic">Graphic Design</span>
+          <span class="content-card-account">@true.blueballer</span>
+        </div>
+        <div class="content-card-body">
+          <div class="content-card-title serif">Real Madrid Is Imploding</div>
+          <div class="content-card-desc">Multi-slide editorial carousel built in Canva. Bold headline, clear take, players named at the bottom so fans know exactly what's being argued before they swipe.</div>
+          <div class="content-card-skills">
+            <span>Graphic design</span><span>Editorial hook</span><span>Carousel format</span><span>Brand identity</span>
+          </div>
+        </div>
+        <div class="embed-wrap">
+          <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/p/DYIKOuGjGRD/" data-instgrm-version="14" style="background:#FFF;border:0;margin:0;max-width:100%;min-width:326px;padding:0;width:100%;"></blockquote>
+        </div>
+        <a href="https://www.instagram.com/p/DYIKOuGjGRD/" target="_blank" class="content-card-link">View on Instagram ↗</a>
+      </div>
+      <div class="content-card">
+        <div class="content-card-tag-row">
+          <span class="content-card-tag tag-video">Vertical Video</span>
+          <span class="content-card-account">@true.blueballer</span>
+        </div>
+        <div class="content-card-body">
+          <div class="content-card-title serif">Game Sense: Enzo Fernández</div>
+          <div class="content-card-desc">Match footage top, talking-head below. Text overlay timed to the argument, not the action. Creator format. Not what a club posts, but it shows I can cut vertical and structure a football argument on my own.</div>
+          <div class="content-card-skills">
+            <span>Split-screen editing</span><span>Text overlays</span><span>Vertical video</span><span>Football analysis</span>
+          </div>
+        </div>
+        <div class="embed-wrap">
+          <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/p/DYfo7LXMGw7/" data-instgrm-version="14" style="background:#FFF;border:0;margin:0;max-width:100%;min-width:326px;padding:0;width:100%;"></blockquote>
+        </div>
+        <a href="https://www.instagram.com/p/DYfo7LXMGw7/" target="_blank" class="content-card-link">View on Instagram ↗</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="section cream" id="testimonials">
+  <div class="container">
+    <div class="section-eyebrow">What others say</div>
+    <h2 class="section-title serif">People who've worked<br>with me directly.</h2>
+    <div class="rule"></div>
+    <div class="testimonials-grid">
+      <div class="testimonial-card">
+        <div class="testimonial-text">"Keagan was the smart, outgoing, and energetic member of our communications team. His exceptional problem-solving skills consistently guided us through technical challenges. Always diplomatic, he maintained composure, rarely displaying anger or any strong emotions. He confidently hosted significant events like town halls and in-house video series. I'm confident he'll excel wherever his interests take him."</div>
+        <div class="testimonial-name">Chencho Thomas</div>
+        <div class="testimonial-role">Senior Officer, Marketing · Westford</div>
+        <div class="testimonial-relation">Worked together at Axios International, 2025</div>
+      </div>
+      <div class="testimonial-card">
+        <div class="testimonial-text">"Keagan served as President for 2 years in his 4 year study, was active in several clubs from Media to Sports and student initiatives. During his tenure, he showed that he was a natural leader, possesses excellent communication skills with a pleasant personality. He is a gem of a person who perseveres. I can say with conviction that Keagan would be an amazing candidate to any team or organisation."</div>
+        <div class="testimonial-name">Megna Kalvani</div>
+        <div class="testimonial-role">Strategic Communications & Partnerships Lead · 15+ years in Media</div>
+        <div class="testimonial-relation">Deputy Director, Global Learning | SP Jain School of Global Management</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ACADEMIC -->
+<section class="section cream" id="academic">
+  <div class="container">
+    <div class="section-eyebrow">Academic work</div>
+    <h2 class="section-title serif">Football through<br>a business lens.</h2>
+    <div class="rule"></div>
+    <p class="section-desc">Two assignments from my MSc at Warwick Business School. Both football. Both applying strategy frameworks to real problems in the game.</p>
+    <div class="academic-grid">
+      <div class="academic-card featured">
+        <div class="academic-grade grade-distinction">Distinction: 76% · Highest in cohort of 150+</div>
+        <div class="academic-title serif">Digital Strategy & Agile Transformation: Women's Super League</div>
+        <div class="academic-module">IB92U0 · Warwick Business School · 2026</div>
+        <div class="academic-desc">The WSL pulls 42.5 million YouTube views a season. Two thirds come from outside the UK, with no strategy to convert that audience into fans or revenue. Applied ESCO, VRIO and McKinsey's agility model to diagnose the gap. Three recommendations: a league-owned first-party fan data platform, a US digital strategy, and a creator-led international audience programme. Only 20 of 150+ students received a distinction. Professor feedback: "An excellent essay: insightful arguments throughout, with solid analysis and effective use of module content." The recommendations section was cited as the strongest part of the paper.</div>
+        <div class="academic-tags">
+          <span>ESCO framework</span><span>VRIO</span><span>Digital strategy</span><span>Women's football</span><span>Fan data</span>
+        </div>
+        <a href="https://drive.google.com/file/d/1AgjDCswMOlxhqcosJKZkt00Exy3BjG42/view?usp=sharing" class="academic-link" target="_blank">Read the full paper ↗</a>
+      </div>
+      <div class="academic-card">
+        <div class="academic-grade grade-merit">Merit</div>
+        <div class="academic-title serif">Negotiation: The Forced Sale of Chelsea Football Club</div>
+        <div class="academic-module">IB9HX0 · Warwick Business School · 2026</div>
+        <div class="academic-desc">A negotiation analysis of the 89-day Abramovich-to-Boehly sale and the frozen funds dispute that followed. Applied Prospect Theory, Game Theory and Bounded Ethicality to explain why a zero-BATNA party rejected better offers. Introduced an original analytical model: the Coerced Negotiation Framework. Four structural conditions that standard theory fails to account for.</div>
+        <div class="academic-tags">
+          <span>Prospect Theory</span><span>Game Theory</span><span>Original framework</span><span>Chelsea FC</span>
+        </div>
+        <a href="https://drive.google.com/file/d/1khEs-LRF-J5Ty7X4kOv_oLAKVNDWo-rY/view?usp=sharing" class="academic-link" target="_blank">Read the full paper ↗</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- BEYOND -->
+<section class="section white" id="beyond">
+  <div class="container">
+    <div class="section-eyebrow">Beyond the brief</div>
+    <h2 class="section-title serif">Outside of work.</h2>
+    <div class="rule"></div>
+
+    <div class="beyond-grid">
+      <div class="beyond-card">
+        <div class="beyond-card-label">Spartan Sprint, 10km obstacle race</div>
+        <div class="beyond-card-title serif">Signed up. Took a camera. Survived.</div>
+        <div class="beyond-card-desc">10km, 30+ obstacles. I documented it. The editing is minimal and the camera work is shaky. That's sort of the point.</div>
+        <div class="beyond-embed">
+          <iframe width="100%" height="210" src="https://www.youtube.com/embed/hI5QffwSIbA" title="Spartan Sprint Vlog" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
+      </div>
+      <div class="beyond-card">
+        <div class="beyond-card-label">Football: playing, not just watching</div>
+        <div class="beyond-card-title serif">Out with the mates.</div>
+        <div class="beyond-card-desc">I play football regularly. Someone had a camera. It's not tactical analysis. It's just proof I actually play the sport I want to work in.</div>
+        <div class="beyond-embed">
+          <iframe width="100%" height="210" src="https://www.youtube.com/embed/YedZBHOJYNU" title="Football with mates" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section class="about-section" id="about">
+  <div class="about-inner">
+    <div>
+      <div class="about-label">Who I am</div>
+      <h2 class="about-title serif">Grew up in Dubai.<br>Fell in love with <em>Chelsea</em><br>at eight years old.</h2>
+      <div class="about-body">
+        <p>I became a Chelsea fan on the night of the 2008 Champions League final. I was eight years old. I watched my uncle and cousin cry when we lost on penalties, and I thought: if it makes grown men cry, there must be something worth caring about.</p>
+        <p>The first time I went to a match was the 2016/17 season. Chelsea beat City 3-1 at the Etihad. Hazard, Costa, Willian, a Cahill own goal, a red card, a fight in the tunnel. I was sat in the City end because my uncle got the tickets through work, so every time Chelsea scored I had to hold my cousin back from celebrating. I fake-celebrated the Cahill own goal with the City fans around me. Gave Pep a high five as the players were arriving. I felt connected to the club in a way I hadn't before, and that's never really left. During my first year of university in Singapore, I'd stay up through the night for 5am kickoffs, catch a couple of hours sleep, and make my 10am lecture. You do that for something you actually care about.</p>
+        <p>Marketing clicked at a football league startup in Dubai called Line Up Social Sports, an internship between my third and fourth year at university. I posted match highlights and watched per-game revenue go up. Not a module, not a lecture. Just watching something I made move a number that mattered. That environment moved fast. Feedback was immediate. I've been looking for that feeling in every role since.</p>
+        <p>I watch football the same way I watch film: interested in the decisions, not just the outcome. Why didn't the winger take on his full-back? Tactical instruction or the player bottling it? I notice atmospheres too. Stamford Bridge against Barcelona is a different animal to the same ground on a mid-table Tuesday. That's the lens I bring to content. It keeps me close to what's actually happening in the game and around it.</p>
+        <p>I built this portfolio myself, teaching myself the tools as I went. I'm currently reading Chris Sutton's How to Fix Modern Football. His argument that the modern game has lost something the old game had (atmosphere, risk, personality) is the kind of question I find myself thinking about when I'm watching content as much as matches. That's the lens I bring to this.</p>
+      </div>
+    </div>
+    <div class="about-right">
+      <div class="about-fact">
+        <div class="about-fact-label">Based</div>
+        <div class="about-fact-value">Coventry, UK (Warwick Business School)</div>
+      </div>
+      <div class="about-fact">
+        <div class="about-fact-label">Currently</div>
+        <div class="about-fact-value">MSc Marketing & Strategy, Warwick</div>
+      </div>
+      <div class="about-fact">
+        <div class="about-fact-label">Previously</div>
+        <div class="about-fact-value">Marketing & Comms Executive, Axios International — Dubai</div>
+      </div>
+
+      <div class="about-fact">
+        <div class="about-fact-label">Tools</div>
+        <div class="about-fact-value">Adobe Premiere Pro · Photoshop · Illustrator · Canva · CapCut · Hootsuite · Google Analytics</div>
+      </div>
+      <div class="about-fact">
+        <div class="about-fact-label">Sport</div>
+        <div class="about-fact-value">Football · Basketball · Spartan races</div>
+      </div>
+      <div class="about-fact">
+        <div class="about-fact-label">Outside work</div>
+        <div class="about-fact-value">Gym · Film enthusiast · Volunteered at animal shelters</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="contact-section" id="contact">
+  <div class="container">
+    <div class="contact-title serif">Get in touch.</div>
+    <div class="contact-sub">The work is all here. If something caught your attention, I'm easy to reach.</div>
+    <a href="mailto:keagan05@gmail.com" class="contact-email">keagan05@gmail.com</a>
+    <div class="contact-chips">
+      <a class="contact-chip" href="tel:07827846103"><span>Phone</span> 07827 846103</a>
+      <a class="contact-chip" href="https://www.linkedin.com/in/keagankurien/" target="_blank"><span>LinkedIn</span> keagankurien</a>
+      <a class="contact-chip" href="https://www.instagram.com/thekeaganproject/" target="_blank"><span>Instagram</span> @thekeaganproject</a>
+      <a class="contact-chip" href="https://www.instagram.com/true.blueballer/" target="_blank"><span>Football</span> @true.blueballer</a>
+    </div>
+  </div>
+</section>
+
+<footer>Keagan Kurien &mdash; Social Media & Content Professional &mdash; 2026</footer>
+
+<script async src="//www.instagram.com/embed.js"></script>
+<script>
+function toggleMenu() {
+  document.getElementById('hamburger').classList.toggle('open');
+  document.getElementById('mobileMenu').classList.toggle('open');
+}
+</script>
+</body>
+</html>
